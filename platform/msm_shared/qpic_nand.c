@@ -79,6 +79,7 @@ static struct flash_id supported_flash[] = {
 	{0x2690A32C, 0x64,     0xFFFFFFFF, 0x0,      0x20000000,    0,  4096,   0x00040000,        0xE0,   1},
 	{0x2690AC98, 0x81676,  0xFFFFFFFF, 0x0,      0x20000000,    0,  4096,   0x00040000,        0xE0,   1},
 	{0x1580a1c2, 0x02,     0xFFFFFFFF, 0xFF,     0x08000000,    0,  2048,   0x00020000,        0x40,   0},
+	{0x1580a1ad, 0x0,      0xFFFFFFFF, 0x0,      0x08000000,    0,  2048,   0x00020000,        0x40,   0},
 	/* Note: Width flag is 0 for 8 bit Flash and 1 for 16 bit flash   */
 };
 
@@ -1294,9 +1295,9 @@ qpic_nand_non_onfi_probe(struct flash_info *flash)
 	/* Flash device is not supported, print flash device info and halt */
 	if (dev_found == 0)
 	{
-		dprintf(CRITICAL, "NAND device is not supported: nandid: 0x%x"
-						  "maker=0x%02x device=0x%02x\n",
-				flash->id,
+		dprintf(CRITICAL, "NAND device is not supported: nandid: 0x%x: 0x%02x"
+						  " maker=0x%02x device=0x%02x\n",
+				flash->id, flash->id2,
 				flash->vendor,
 				flash->device);
 		ASSERT(0);
