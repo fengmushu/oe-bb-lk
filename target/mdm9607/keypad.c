@@ -30,10 +30,12 @@
 #include <platform/gpio.h>
 #include <platform/iomap.h>
 
+#include <debug.h>
+
 /* GPIO that controls the button
  * for FASTBOOT.
  */
-#define FASTBOOT_KEY_GPIO_ID        37
+#define FASTBOOT_KEY_GPIO_ID        42	/* EC25:PIN3:42 */
 
 /*
  * Returns fastboot button state.
@@ -58,6 +60,7 @@ int fastboot_trigger(void)
 	int ret;
 
 	ret = get_fastboot_key_state();
+	dprintf(INFO, "fastboot_trigger[%d] - state: %d\n", FASTBOOT_KEY_GPIO_ID, ret);
 
 	return (ret);
 }

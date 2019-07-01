@@ -23,6 +23,7 @@ SCRATCH_REGION_SIZE_256                 := 0x08000000  # 128MB
 
 BASE_ADDR                               := 0x80000000
 
+DEFINES += NO_KEYPAD_DRIVER=1
 
 MODULES += \
 	dev/keys \

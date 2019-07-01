@@ -69,4 +69,5 @@ void gpio_tlmm_config(uint32_t gpio,
 			uint8_t pull,
 			uint8_t drvstr,
 			uint32_t enable);
+uint32_t gpio_get_state(uint32_t gpio);
 #endif
